@@ -1,16 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
     $nombre = $_POST["nombre"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // **TODO:** Realizar validaciones más robustas aquí
-
-    // **TODO:** Conectar a la base de datos MySQL con PDO
-    $host = 'localhost'; // Reemplaza con tu host
-    $dbname = 'mooncafe_db'; // Reemplaza con el nombre de tu base de datos
-    $user = 'tu_usuario'; // Reemplaza con tu usuario de la base de datos
-    $db_password = 'tu_contraseña'; // Reemplaza con tu contraseña de la base de datos
+    $id = $_POST["id"];
+    $host = 'localhost'; 
+    $dbname = 'mooncafe_db'; 
+    $user = 'root'; 
+    $db_password = ''; 
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $db_password);
@@ -19,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // **TODO:** Hashear la contraseña de forma segura antes de guardarla
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email, password) VALUES (:nombre, :email, :password)");
+        $stmt = $pdo->prepare("INSERT INTO usuarios (id, nombre, email, password) VALUES (:id, :nombre, :email, :password)");
+        $stmt->bindParam(':id', $id);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);
