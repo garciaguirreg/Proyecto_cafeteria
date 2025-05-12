@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - MoonCafe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .mt-4 {
+            margin-top: 1.5rem;
+        }
+        .mt-3 {
+            margin-top: 1rem;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+            border-color: #17a2b8;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="crear_cuenta.html">Crear Cuenta</a>
+            <a href="novedades.html">Novedades y promociones</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <h1>Contáctanos</h1>
+        <p>¿Tienes alguna pregunta, sugerencia o quieres hacer una reserva? ¡No dudes en contactarnos!</p>
+
+        <section id="contacto-dinamico" class="mt-4">
+            <button @click="abrirFormulario('contacto')" class="btn btn-info">Mostrar Información de Contacto</button>
+            <div v-if="forms.contacto.mostrar" class="mt-3">
+                <h3>Nuestra Información</h3>
+                <p><strong>Dirección:</strong> {{ contactoInfo.direccion }}</p>
+                <p><strong>Teléfono:</strong> {{ contactoInfo.telefono }}</p>
+                <p><strong>Email:</strong> {{ contactoInfo.email }}</p>
+                <button @click="enviarContacto" class="btn btn-primary">Enviar Mensaje (Simulado)</button>
+            </div>
+        </section>
+
+        <section id="formulario-contacto" class="mt-4">
+            <h3>Envíanos un Mensaje</h3>
+            <form action="#" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje:</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp, ref } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    forms: {
+                        contacto: {
+                            mostrar: false
+                        }
+                    },
+                    contactoInfo: {
+                        direccion: "Ululutan, El Salvador",
+                        telefono: "+(503) 26262727",
+                        email: "info@mooncafe.com"
+                    }
+                };
+            },
+            methods: {
+                abrirFormulario(nombreFormulario) {
+                    this.forms[nombreFormulario].mostrar = true;
+                },
+                enviarContacto() {
+                    alert('Mensaje de contacto enviado');
+                    this.forms.contacto.mostrar = false;
+                }
+            }
+        }).mount('#contacto-dinamico');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
