@@ -23,7 +23,7 @@
             background-image: url('images/cafe_portada.jpg');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: black;
             text-align: center;
             padding: 100px 0;
             margin-bottom: 30px;
