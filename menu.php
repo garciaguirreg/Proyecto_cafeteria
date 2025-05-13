@@ -41,18 +41,38 @@
         </header>
 
         <main class="shadow-sm p-4 rounded">
-            <form class="mb-3" id="form-buscar">
+            <form class="mb-3" id="form-buscar-local">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar producto..." name="termino_busqueda" v-model="terminoBusqueda">
+                    <input type="text" class="form-control" placeholder="Buscar producto (filtrado local)..." name="termino_busqueda_local" v-model="terminoBusqueda">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                        <button class="btn btn-outline-secondary" type="submit">Buscar Local</button>
+                    </div>
+                </div>
+            </form>
+
+            <form class="mb-3" method="GET" action="buscar_productos.php" id="form-buscar-servidor">
+                <h2>Buscar Productos (Servidor)</h2>
+                <div class="form-row align-items-center">
+                    <div class="col-md-4 mb-2">
+                        <input type="text" class="form-control" placeholder="Buscar por nombre..." name="nombre">
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <select class="form-control" name="categoria">
+                            <option value="">Todas las categorías</option>
+                            <option value="cafes">Cafés</option>
+                            <option value="bebidas_frias">Bebidas Frías</option>
+                            <option value="comida">Comida</option>
+                        </select>
+                    </div>
+                    <div class="col-md-auto mb-2">
+                        <button class="btn btn-primary" type="submit">Buscar en Menú</button>
                     </div>
                 </div>
             </form>
 
             <section>
                 <h2>Nuestros Cafés</h2>
-                <div class="menu-item" v-for="(cafe, index) in cafes" :key="'cafe_' + index" v-if="cafe.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase()) || cafe.descripcion.toLowerCase().includes(terminoBusqueda.toLowerCase())">
+                <div class="menu-item" v-for="(cafe, index) in cafesFiltrados" :key="'cafe_' + index">
                     <div class="menu-item-details">
                         <h3>{{ cafe.nombre }}</h3>
                         <p class="precio">${{ cafe.precio }}</p>
@@ -68,7 +88,7 @@
 
             <section>
                 <h2>Bebidas Frías</h2>
-                <div class="menu-item" v-for="(bebida, index) in bebidasFrias" :key="'bebida_' + index" v-if="bebida.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase()) || bebida.descripcion.toLowerCase().includes(terminoBusqueda.toLowerCase())">
+                <div class="menu-item" v-for="(bebida, index) in bebidasFriasFiltradas" :key="'bebida_' + index">
                     <div class="menu-item-details">
                         <h3>{{ bebida.nombre }}</h3>
                         <p class="precio">${{ bebida.precio }}</p>
@@ -84,7 +104,7 @@
 
             <section>
                 <h2>Nuestra Comida</h2>
-                <div class="menu-item" v-for="(comida, index) in comida" :key="'comida_' + index" v-if="comida.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase()) || comida.descripcion.toLowerCase().includes(terminoBusqueda.toLowerCase())">
+                <div class="menu-item" v-for="(comida, index) in comidaFiltrada" :key="'comida_' + index">
                     <div class="menu-item-details">
                         <h3>{{ comida.nombre }}</h3>
                         <p class="precio">${{ comida.precio }}</p>
@@ -140,6 +160,26 @@
                 cantidadesBebidaFria: {},
                 cantidadesComida: {},
                 pedido: []
+            },
+            computed: {
+                cafesFiltrados: function() {
+                    const termino = this.terminoBusqueda.toLowerCase();
+                    return this.cafes.filter(function(cafe) {
+                        return cafe.nombre.toLowerCase().includes(termino) || cafe.descripcion.toLowerCase().includes(termino);
+                    });
+                },
+                bebidasFriasFiltradas: function() {
+                    const termino = this.terminoBusqueda.toLowerCase();
+                    return this.bebidasFrias.filter(function(bebida) {
+                        return bebida.nombre.toLowerCase().includes(termino) || bebida.descripcion.toLowerCase().includes(termino);
+                    });
+                },
+                comidaFiltrada: function() {
+                    const termino = this.terminoBusqueda.toLowerCase();
+                    return this.comida.filter(function(comida) {
+                        return comida.nombre.toLowerCase().includes(termino) || comida.descripcion.toLowerCase().includes(termino);
+                    });
+                }
             },
             methods: {
                 actualizarPedido: function(nombre, cantidad) {
