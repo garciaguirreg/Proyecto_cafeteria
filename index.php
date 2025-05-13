@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            color: #333; 
+            color: #333;
         }
         header h1 {
-            color: #000; 
+            color: #000;
         }
         header .navbar .nav-link {
-            color: #000 !important; 
+            color: #000 !important;
         }
         header .navbar .nav-link:hover {
-            color: #555 !important; 
+            color: #555 !important;
         }
         .hero {
-            background-image: url('images/cafe_portada.jpg'); 
+            background-image: url('images/cafe_portada.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -33,21 +33,6 @@
             margin-bottom: 20px;
             font-weight: bold;
         }
-        .hero nav {
-            margin-top: 20px;
-        }
-        .hero nav a {
-            color: white !important;
-            border: 1px solid white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 0 10px;
-            text-decoration: none !important;
-            display: inline-block;
-        }
-        .hero nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
         .features {
             padding: 40px 0;
             text-align: center;
@@ -57,7 +42,7 @@
         }
         .feature-item i {
             font-size: 2rem;
-            color: #a0522d; 
+            color: #a0522d;
             margin-bottom: 15px;
         }
         .feature-item h3 {
@@ -70,7 +55,7 @@
 <body>
     <header class="bg-light p-3 text-center">
         <h1>Bienvenido a MoonCafe</h1>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center d-none">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.php">Menú</a></li>
@@ -94,13 +79,6 @@
         <section class="hero">
             <div class="container">
                 <h1>El Mejor Café de El Salvador</h1>
-                <nav class="mt-2">
-                    <a href="index.php">Inicio</a>
-                    <a href="menu.php">Menú</a>
-                    <a href="crear_cuenta.html">Crear Cuenta</a>
-                    <a href="novedades.html">Novedades</a>
-                    <a href="contacto.html">Contacto</a>
-                </nav>
                 <p class="mt-3">Descubre una experiencia única con nuestros granos selectos y métodos de preparación artesanales.</p>
             </div>
         </section>
