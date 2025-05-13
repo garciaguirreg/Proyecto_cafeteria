@@ -6,6 +6,7 @@
     <title>MoonCafe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQmQa7KBw0YJ/yJU5WC1cAZnAAlh/VFEGxqg5lnJ1yrn1iqFxCvKBCVcxyf6iYmIVLZznmQmBaRxSA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             color: #333;
@@ -99,6 +100,29 @@
                 </div>
             </div>
         </section>
+        <section class="cafe-images">
+    <div class="container">
+        <h2 class="mb-4">Nuestra Pasión por el Café</h2>
+        <div class="row">
+            <div class="col-md-6 cafe-image-item">
+                <img src="images/cafe_preparacion.jpg" alt="Preparación de Café" class="img-fluid">
+                <p class="text-center mt-2 text-muted">Preparación Artesanal</p>
+            </div>
+            <div class="col-md-6 cafe-image-item">
+                <img src="images/granos_cafe.jpg" alt="Granos de Café" class="img-fluid">
+                <p class="text-center mt-2 text-muted">Granos Selectos</p>
+            </div>
+            <div class="col-md-6 cafe-image-item">
+                <img src="images/taza_cafe.jpg" alt="Taza de Café" class="img-fluid">
+                <p class="text-center mt-2 text-muted">Disfruta Cada Sorbo</p>
+            </div>
+            <div class="col-md-6 cafe-image-item">
+                <img src="images/ambiente_cafe.jpg" alt="Ambiente del Café" class="img-fluid">
+                <p class="text-center mt-2 text-muted">Un Lugar para Compartir</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <div class="container mt-4">
             <?php
