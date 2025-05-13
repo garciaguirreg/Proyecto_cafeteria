@@ -79,10 +79,15 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>El Mejor Café de El Salvador</h1>
-                <p class="mt-3">Descubre una experiencia única con nuestros granos selectos y métodos de preparación artesanales.</p>
+                
             </div>
         </section>
+
+         <div class="container">
+                <h3>El Mejor Café de El Salvador</h3>
+        <p class="mt-3">Descubre una experiencia única con nuestros granos selectos y métodos de preparación artesanales.</p> 
+            </div>
+       
 
         <section class="container features">
             <div class="row">
@@ -106,7 +111,7 @@
         <div class="row">
             <div class="col-md-6 cafe-image-item">
                 <img src="images/cafe_preparacion.jpg" alt="Preparación de Café" class="img-fluid">
-                <p class="text-center mt-2 text-muted">Preparación Artesanal</p>
+                <p class="text-center mt-2 text-muted">Preparación</p>
             </div>
             <div class="col-md-6 cafe-image-item">
                 <img src="images/granos_cafe.jpg" alt="Granos de Café" class="img-fluid">
