@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +6,73 @@
     <title>MoonCafe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            color: #333; 
+        }
+        header h1 {
+            color: #000; 
+        }
+        header .navbar .nav-link {
+            color: #000 !important; 
+        }
+        header .navbar .nav-link:hover {
+            color: #555 !important; 
+        }
+        .hero {
+            background-image: url('images/cafe_portada.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 30px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .hero nav {
+            margin-top: 20px;
+        }
+        .hero nav a {
+            color: white !important;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            text-decoration: none !important;
+            display: inline-block;
+        }
+        .hero nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .features {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .feature-item {
+            margin-bottom: 30px;
+        }
+        .feature-item i {
+            font-size: 2rem;
+            color: #a0522d; 
+            margin-bottom: 15px;
+        }
+        .feature-item h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <header class="bg-light p-3 text-center">
         <h1>Bienvenido a MoonCafe</h1>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center d-none">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.php">Menú</a></li>
                 <li class="nav-item"><a class="nav-link" href="crear_cuenta.html">Crear Cuenta</a></li>
                 <li class="nav-item"><a class="nav-link" href="novedades.html">Novedades</a></li>
@@ -29,17 +89,51 @@
             </ul>
         </nav>
     </header>
-    <main class="container mt-4">
-        <?php
-        if (isset($_SESSION['user_id'])) {
-            echo '<p class="lead">¡Disfruta de tu visita a MoonCafe, ' . htmlspecialchars($_SESSION['user_name']) . '!</p>';
-        } else {
-            echo '<p class="lead">Tu lugar ideal para disfrutar del mejor café.</p>';
-            echo '<p>Descubre nuestra selección de cafés artesanales, deliciosos postres y un ambiente acogedor.</p>';
-            echo '<p><a href="menu.php" class="btn btn-primary">Ver nuestro menú</a></p>';
-        }
-        ?>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>El Mejor Café de El Salvador</h1>
+                <nav class="mt-2">
+                    <a href="index.php">Inicio</a>
+                    <a href="menu.php">Menú</a>
+                    <a href="crear_cuenta.html">Crear Cuenta</a>
+                    <a href="novedades.html">Novedades</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+                <p class="mt-3">Descubre una experiencia única con nuestros granos selectos y métodos de preparación artesanales.</p>
+            </div>
+        </section>
+
+        <section class="container features">
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-coffee"></i> <h3>Café de Origen</h3>
+                    <p>Selección exclusiva de granos de las mejores regiones de El Salvador.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-utensils"></i> <h3>Deliciosos Acompañamientos</h3>
+                    <p>Disfruta de nuestros postres, sándwiches y otras delicias.</p>
+                </div>
+                <div class="col-md-4 feature-item">
+                    <i class="fas fa-users"></i> <h3>Ambiente Acogedor</h3>
+                    <p>Un espacio perfecto para relajarte y disfrutar de tu café.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mt-4">
+            <?php
+            if (isset($_SESSION['user_id'])) {
+                echo '<p class="lead">¡Disfruta de tu visita a MoonCafe, ' . htmlspecialchars($_SESSION['user_name']) . '!</p>';
+            } else {
+                echo '<p class="lead">Tu lugar ideal para disfrutar del mejor café.</p>';
+                echo '<p>Descubre nuestra selección de cafés artesanales, deliciosos postres y un ambiente acogedor.</p>';
+            }
+            ?>
+        </div>
     </main>
+
     <footer class="bg-light p-3 text-center mt-4">
         <p>&copy; 2025 MoonCafe. Todos los derechos reservados.</p>
     </footer>
@@ -47,5 +141,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/your_fontawesome_kit.js" crossorigin="anonymous"></script>
 </body>
 </html>
